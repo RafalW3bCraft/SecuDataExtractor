@@ -247,24 +247,9 @@ app.config['ENABLE_CACHING'] = True
 
 ---
 
-## 🧪 Testing
-
-```bash
-# Run unit tests
-python -m pytest tests/
-
-# Test scrapers
-python test_scrapers.py
-
-# Validate datasets
-python -m utils.jsonl_validator datasets/latest_dataset.jsonl
-```
-
----
-
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md).
+We welcome contributions!
 
 ### Development Setup
 
