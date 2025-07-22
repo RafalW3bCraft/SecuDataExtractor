@@ -308,15 +308,6 @@ copies or substantial portions of the Software.
 
 ---
 
-## 👨‍💻 Author
-
-**RafalW3bCraft**
-- 🌐 Website: [Coming Soon]
-- 📧 Email: [Contact through GitHub]
-- 💼 GitHub: [@RafalW3bCraft](https://github.com/RafalW3bCraft)
-
----
-
 ## 🙏 Acknowledgments
 
 - **Security Community**: For providing valuable vulnerability data
