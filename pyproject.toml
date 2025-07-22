@@ -1,0 +1,34 @@
+[project]
+name = "secudataextractor"
+version = "0.1.0"
+description = "SecuDataExtractor - A sophisticated Python-powered cybersecurity vulnerability data harvesting and processing application for AI model fine-tuning"
+authors = [
+    {name = "RafalW3bCraft", email = "rafalw3bcraft@example.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11"
+keywords = ["cybersecurity", "vulnerability", "dataset", "ai", "machine-learning", "scraping"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "beautifulsoup4>=4.13.4",
+    "flask-migrate>=4.1.0",
+    "flask>=3.1.1",
+    "psycopg2-binary>=2.9.10",
+    "requests>=2.32.4",
+    "sqlalchemy>=2.0.41",
+    "trafilatura>=2.0.0",
+    "python-dotenv>=1.1.1",
+]

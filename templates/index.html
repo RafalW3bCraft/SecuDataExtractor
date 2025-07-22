@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!--
+SecuDataExtractor
+Author: RafalW3bCraft
+License: MIT
+Copyright (c) 2025 RafalW3bCraft
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecuDataExtractor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 sidebar">
+                <div class="sidebar-header">
+                    <h4><i class="fas fa-shield-alt"></i> CyberSec Dataset</h4>
+                    <p>AI Training Data Generator</p>
+                </div>
+                
+                <div class="nav-section">
+                    <h6>Navigation</h6>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" data-section="scraper">
+                                <i class="fas fa-spider"></i> Scraper Configuration
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="progress">
+                                <i class="fas fa-chart-line"></i> Progress Monitor
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-section="datasets">
+                                <i class="fas fa-database"></i> Generated Datasets
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="col-md-9 main-content">
+                <!-- Scraper Configuration Section -->
+                <div id="scraper-section" class="content-section active">
+                    <div class="page-header">
+                        <h2><i class="fas fa-cogs"></i> Scraper Configuration</h2>
+                        <p>Configure data sources and scraping parameters for generating cybersecurity training datasets</p>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5><i class="fas fa-sliders-h"></i> Configuration Parameters</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form id="scraper-form">
+                                        <div class="mb-4">
+                                            <label class="form-label">Data Sources</label>
+                                            <div class="source-grid">
+                                                <div class="form-check source-card">
+                                                    <input class="form-check-input" type="checkbox" id="hackerone" name="sources" value="hackerone">
+                                                    <label class="form-check-label" for="hackerone">
+                                                        <div class="source-info">
+                                                            <i class="fas fa-bug"></i>
+                                                            <strong>HackerOne</strong>
+                                                            <small>Public bug bounty reports</small>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                                
+                                                <div class="form-check source-card">
+                                                    <input class="form-check-input" type="checkbox" id="bugcrowd" name="sources" value="bugcrowd">
+                                                    <label class="form-check-label" for="bugcrowd">
+                                                        <div class="source-info">
+                                                            <i class="fas fa-users"></i>
+                                                            <strong>Bugcrowd</strong>
+                                                            <small>Security disclosures</small>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                                
+                                                <div class="form-check source-card">
+                                                    <input class="form-check-input" type="checkbox" id="exploitdb" name="sources" value="exploitdb">
+                                                    <label class="form-check-label" for="exploitdb">
+                                                        <div class="source-info">
+                                                            <i class="fas fa-terminal"></i>
+                                                            <strong>ExploitDB</strong>
+                                                            <small>Proof of concept exploits</small>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                                
+                                                <div class="form-check source-card">
+                                                    <input class="form-check-input" type="checkbox" id="cve" name="sources" value="cve">
+                                                    <label class="form-check-label" for="cve">
+                                                        <div class="source-info">
+                                                            <i class="fas fa-exclamation-triangle"></i>
+                                                            <strong>CVE Database</strong>
+                                                            <small>Known vulnerabilities</small>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="max-entries" class="form-label">
+                                                Harvest Mode: <span id="max-entries-value">Unlimited</span>
+                                            </label>
+                                            <select class="form-select" id="max-entries" name="max_entries">
+                                                <option value="unlimited" selected>Unlimited - Harvest All Available</option>
+                                                <option value="5000">5,000 entries per source</option>
+                                                <option value="1000">1,000 entries per source</option>
+                                                <option value="500">500 entries per source</option>
+                                                <option value="100">100 entries per source</option>
+                                            </select>
+                                            <div class="form-text">Unlimited mode will harvest as many entries as possible from each source</div>
+                                        </div>
+                                        
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-primary btn-lg" id="start-scraping-btn">
+                                                <i class="fas fa-play"></i> Start Scraping
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6><i class="fas fa-info-circle"></i> Information</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="info-item">
+                                        <h6>Output Format</h6>
+                                        <p>JSONL with instruction/input/output structure for AI training</p>
+                                    </div>
+                                    
+                                    <div class="info-item">
+                                        <h6>Ethical Scraping</h6>
+                                        <p>Respects robots.txt and implements rate limiting</p>
+                                    </div>
+                                    
+                                    <div class="info-item">
+                                        <h6>Data Quality</h6>
+                                        <p>Automatic deduplication and validation</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Progress Monitor Section -->
+                <div id="progress-section" class="content-section">
+                    <div class="page-header">
+                        <h2><i class="fas fa-chart-line"></i> Progress Monitor</h2>
+                        <p>Real-time monitoring of the scraping process</p>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5><i class="fas fa-tasks"></i> Scraping Progress</h5>
+                                    <div id="status-badge" class="badge bg-secondary">Idle</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="progress mb-3" style="height: 25px;">
+                                        <div id="progress-bar" class="progress-bar progress-bar-striped" 
+                                             role="progressbar" style="width: 0%">0%</div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <strong>Current Source:</strong>
+                                            <span id="current-source">-</span>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>Elapsed Time:</strong>
+                                            <span id="elapsed-time">-</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mt-2">
+                                        <div class="col-md-6">
+                                            <strong>Total Entries:</strong>
+                                            <span id="total-entries">0</span>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>Errors:</strong>
+                                            <span id="error-count">0</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="completion-actions" class="mt-3" style="display: none;">
+                                        <div class="d-grid gap-2 d-md-flex">
+                                            <button id="download-btn" class="btn btn-success">
+                                                <i class="fas fa-download"></i> Download Dataset
+                                            </button>
+                                            <button id="preview-btn" class="btn btn-outline-primary">
+                                                <i class="fas fa-eye"></i> Preview Data
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6><i class="fas fa-exclamation-triangle"></i> Errors & Warnings</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div id="error-log" class="error-log">
+                                        <p class="text-muted">No errors to display</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Generated Datasets Section -->
+                <div id="datasets-section" class="content-section">
+                    <div class="page-header">
+                        <h2><i class="fas fa-database"></i> Generated Datasets</h2>
+                        <p>Browse and manage previously generated training datasets</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5><i class="fas fa-file-alt"></i> Available Datasets</h5>
+                            <button class="btn btn-outline-primary btn-sm" onclick="loadDatasets()">
+                                <i class="fas fa-sync"></i> Refresh
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div id="datasets-list">
+                                <div class="text-center">
+                                    <div class="spinner-border" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <p class="mt-2">Loading datasets...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="text-muted">© 2025 RafalW3bCraft - SecuDataExtractor</span>
+                </div>
+                <div class="col-md-6 text-end">
+                    <span class="text-muted">Licensed under MIT License</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Preview Modal -->
+    <div class="modal fade" id="previewModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Dataset Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="preview-content">
+                        <div class="text-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
