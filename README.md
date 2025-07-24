@@ -324,7 +324,7 @@ The authors and contributors are not responsible for any misuse of this software
 - [ ] **Enhanced Sources**: Additional vulnerability databases
 
 ---
-
+<!-- GitAds-Verify: K7PM6DSKOGNESOU6E3D9YUVOFDEWK5UY -->
 <div align="center">
 
 **⭐ Star this repository if you find it useful!**
