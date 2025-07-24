@@ -324,9 +324,9 @@ The authors and contributors are not responsible for any misuse of this software
 - [ ] **Enhanced Sources**: Additional vulnerability databases
 
 ---
+
 ## GitAds Sponsored
 [![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=rafalw3bcraft/secudataextractor@github)](https://gitads.dev/v1/ad-track?source=rafalw3bcraft/secudataextractor@github)
-
 
 <!-- GitAds-Verify: K7PM6DSKOGNESOU6E3D9YUVOFDEWK5UY -->
 <div align="center">
