@@ -559,32 +559,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/45/94/bc295babb3062a731f52621cdc992d123111282e291abaf23faa413443ea/regex-2024.11.6-cp313-cp313-win_amd64.whl", hash = "sha256:2b3361af3198667e99927da8b84c1b010752fa4b1115ee30beaa332cabc3ef1a", size = 273545 },
 ]
 
-[[package]]
-name = "repl-nix-workspace"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "beautifulsoup4" },
-    { name = "flask" },
-    { name = "flask-migrate" },
-    { name = "psycopg2-binary" },
-    { name = "python-dotenv" },
-    { name = "requests" },
-    { name = "sqlalchemy" },
-    { name = "trafilatura" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "beautifulsoup4", specifier = ">=4.13.4" },
-    { name = "flask", specifier = ">=3.1.1" },
-    { name = "flask-migrate", specifier = ">=4.1.0" },
-    { name = "psycopg2-binary", specifier = ">=2.9.10" },
-    { name = "python-dotenv", specifier = ">=1.1.1" },
-    { name = "requests", specifier = ">=2.32.4" },
-    { name = "sqlalchemy", specifier = ">=2.0.41" },
-    { name = "trafilatura", specifier = ">=2.0.0" },
-]
 
 [[package]]
 name = "requests"
