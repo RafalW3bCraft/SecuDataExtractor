@@ -4,7 +4,7 @@
 
 ![SecuDataExtractor Banner](https://img.shields.io/badge/SecuDataExtractor-Cybersecurity%20Data%20Harvesting-blue?style=for-the-badge)
 
-**A sophisticated Python-powered cybersecurity vulnerability data harvesting and processing application**
+**A sophisticated Python-powered cybersecurity vulnerability data harvesting and processing application **
 
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://python.org)
 [![Flask](https://img.shields.io/badge/Flask-3.0+-green.svg)](https://flask.palletsprojects.com)
